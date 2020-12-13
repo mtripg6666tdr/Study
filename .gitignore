@@ -1,5 +1,5 @@
-**/node_modules/*
-**/desktop.ini/*
+**/node_modules
+**/desktop.ini
 **/bin/*
 **/dist/*
 **/public/*
