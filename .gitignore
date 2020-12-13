@@ -1,5 +1,6 @@
-**/node_modules
-**/desktop.ini
-**/bin
-**/dist
-**/public
+**/node_modules/*
+**/desktop.ini/*
+**/bin/*
+**/dist/*
+**/public/*
+!**.html
