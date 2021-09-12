@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 import { todoEntry } from "../definition";
+import { CREATE_TODO, dispatcher, DispatcherAction } from "../dispatcher";
 
 class _toDoStore extends EventEmitter {
   private todos = null as todoEntry[];
@@ -33,8 +34,17 @@ class _toDoStore extends EventEmitter {
   getAll(){
     return this.todos;
   }
+
+  handleActions(action:DispatcherAction){
+    switch(action.type){
+      case CREATE_TODO: {
+        this.createToDo(action.data as string);
+      } break;
+    }
+  }
 }
 
 export const todoStore = new _toDoStore();
+dispatcher.register(todoStore.handleActions.bind(todoStore));
 //@ts-ignore
-window.todoStore = todoStore;
+window.dispatcher = dispatcher;
