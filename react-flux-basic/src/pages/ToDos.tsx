@@ -1,31 +1,26 @@
 import React from "react";
 
 import { Todo } from "../components/Todo";
+import { todoEntry } from "../definition";
+import { todoStore } from "../stores/ToDoStore";
 
 type State = {
-  todos:{
-    id:number,
-    text:string,
-    complete:boolean
-  }[]
+  todos:todoEntry[]
 }
 export class Todos extends React.Component<{}, State> {
   constructor(props:{}) {
     super(props);
     this.state = {
-      todos: [
-        {
-          id: 113464613,
-          text: "Go Shopping",
-          complete: false
-        },
-        {
-          id: 235684679,
-          text: "Pay Bills",
-          complete: false
-        }
-      ]
+      todos: todoStore.getAll()
     };
+  }
+
+  componentDidMount(){
+    todoStore.on("change", () => {
+      this.setState({
+        todos: todoStore.getAll()
+      });
+    });
   }
 
   render() {

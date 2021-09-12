@@ -6,3 +6,9 @@ export abstract class AppURL {
   static readonly Favorites = AppURL.Base + "/favorites";
   static readonly Settings = AppURL.Base + "/settings";
 }
+
+export type todoEntry = {
+  id:number,
+  text:string,
+  complete:boolean
+}
