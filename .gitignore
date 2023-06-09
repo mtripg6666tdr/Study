@@ -1,8 +1,12 @@
+# For JavaScript/TypeScript
 **/node_modules
 **/desktop.ini
 **/bin/*
 **/dist/*
 **/public/*
+!**.html
+
+# For Rust
 *.exe
 *.pdb
-!**.html
+**/target
