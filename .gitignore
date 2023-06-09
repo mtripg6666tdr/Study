@@ -3,4 +3,6 @@
 **/bin/*
 **/dist/*
 **/public/*
+*.exe
+*.pdb
 !**.html
