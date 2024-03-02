@@ -1,0 +1,18 @@
+name: study-devcontainer-typescript
+
+services:
+  devcontainers:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye
+    command: sleep infinity
+    volumes:
+      - ..:/workspace
+
+  db:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    restart: unless-stopped
